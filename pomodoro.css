@@ -1,0 +1,101 @@
+@font-face {
+	font-family: Digital;
+	src: url('./font/digital-7.ttf');
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Arial Black", Gadget, sans-serif;
+	background: lightskyblue
+		url('https://i.pinimg.com/originals/3c/24/46/3c24462450c2a902bf7e18f3d9aada81.jpg') center;
+	color: #fff;
+}
+
+.container {
+	max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 20px
+}
+
+.container h1 {
+	font-size: 40px;
+}
+
+.container h3, .number-display  {
+	font-size: 25px;
+}
+
+button {
+	background-color: transparent;
+	color: #fff;
+	border: none;
+	font-weight: bolder;
+	outline: none;
+	cursor: pointer;
+}
+ 
+
+button:active {
+	font-size: 14px;
+	color: #dddddd;
+	
+}
+
+.lengths {
+	display: flex;
+	max-width: 500px;
+	justify-content: space-around;
+	margin: 30px auto;
+
+}
+
+#break-length, #session-length {
+	margin: 0 10px;
+}
+
+#timer-label {
+	border: 2px solid #fff;
+	max-width: 250px;
+	max-height: 200px;
+	border-radius: 20px;
+	margin: 0 auto 10px;
+	padding: 20px;
+}
+
+#time-left {
+	font-size: 70px;
+	margin: 10px 0 20px;
+	font-family: 'digital';
+}
+
+#pause {
+	margin: 0 10px;
+}
+.clock-controller {
+	padding: 10px 10px;
+}
+ .clock-controller:hover {
+	color: #dddddd;
+	border: 1px solid rgba(255, 255, 255, 0.568);
+	border-radius: 10px;
+ }
+
+.myName {
+
+	font-size: 14px;
+	margin-top: 20px;
+	font-weight: normal;
+	color: darkgreen;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.myName a {
+	text-decoration: none;
+	color: rgba(255, 255, 255, 0.342);
+}

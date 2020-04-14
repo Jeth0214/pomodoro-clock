@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Clock</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="pomodoro.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Pomodoro lock</h1>
+        <div class="lengths">
+            <div class="breaks">
+                <h3 id="break-label">Break Length</h3>
+                <div class="set">
+                    <button id="break-decrement" data-action="down"><i class="fas fa-arrow-down fa-2x" ></i></button>
+                    <span class="number-display" id="break-length">5</span>
+                    <button id="break-increment" data-action="up"><i class="fas fa-arrow-up fa-2x" ></i></button>
+                </div>
+            </div>
+            <div class="sessions">
+                <h3 id="session-label">Session Length</h3>
+                <div class="set">
+                    <button id="session-decrement" data-action="down"><i class="fas fa-arrow-down fa-2x"></i></button>
+                    <span class="number-display" id="session-length">25</span>
+                    <button id="session-increment" data-action="up"><i class="fas fa-arrow-up fa-2x"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="timer-label">
+            <h3>Session</h3>
+            <div id="time-left"> 25:00 </div>
+        </div>
+        <div>
+            <button id="start_stop" title="play" class="clock-controller" data-action="play"><i class="fas fa-play fa-2x"></i></button>
+            <button id="pause" title="pause" class="clock-controller" data-action="pause"><i class="fas fa-pause fa-2x"></i></button>
+            <button id="reset" title="reset" class="clock-controller" data-action="reset"><i class="fas fa-redo-alt fa-2x"></i></button>
+        </div>
+
+        <div class="myName">
+            <p id="desing-by">Design and Coded By</p>
+            <p id="my-codepen"><a href="https://codepen.io/jeth0214" target="_blank">Roland Jethro Suyom</a></p>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <script src="pomodoro.js"></script>
+</body>
+</html>
