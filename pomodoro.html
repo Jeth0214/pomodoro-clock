@@ -10,34 +10,33 @@
 <body>
     
     <div class="container">
-        <h1>Pomodoro lock</h1>
+        <h1>Pomodoro Clock</h1>
         <div class="lengths">
             <div class="breaks">
                 <h3 id="break-label">Break Length</h3>
                 <div class="set">
-                    <button id="break-decrement" data-action="down"><i class="fas fa-arrow-down fa-2x" ></i></button>
+                    <button id="break-decrement" class="length-buttons"><i class="fas fa-arrow-down fa-2x " ></i></button>
                     <span class="number-display" id="break-length">5</span>
-                    <button id="break-increment" data-action="up"><i class="fas fa-arrow-up fa-2x" ></i></button>
+                    <button id="break-increment" class="length-buttons"><i class="fas fa-arrow-up fa-2x" ></i></button>
                 </div>
             </div>
             <div class="sessions">
                 <h3 id="session-label">Session Length</h3>
                 <div class="set">
-                    <button id="session-decrement" data-action="down"><i class="fas fa-arrow-down fa-2x"></i></button>
+                    <button id="session-decrement" class="length-buttons"><i class="fas fa-arrow-down fa-2x"></i></button>
                     <span class="number-display" id="session-length">25</span>
-                    <button id="session-increment" data-action="up"><i class="fas fa-arrow-up fa-2x"></i></button>
+                    <button id="session-increment" class="length-buttons"><i class="fas fa-arrow-up fa-2x"></i></button>
                 </div>
             </div>
         </div>
 
-        <div id="timer-label">
-            <h3>Session</h3>
-            <div id="time-left"> 25:00 </div>
+        <div id="timer">
+            <h3 id="timer-label">Session</h3>
+            <div id="time-left"> </div>
         </div>
         <div>
-            <button id="start_stop" title="play" class="clock-controller" data-action="play"><i class="fas fa-play fa-2x"></i></button>
-            <button id="pause" title="pause" class="clock-controller" data-action="pause"><i class="fas fa-pause fa-2x"></i></button>
-            <button id="reset" title="reset" class="clock-controller" data-action="reset"><i class="fas fa-redo-alt fa-2x"></i></button>
+            <button id="start_stop" title="play" class="clock-controller"><i class="fas fa-play fa-2x"></i></button>
+            <button id="reset" title="reset" class="clock-controller" ><i class="fas fa-redo-alt fa-2x"></i></button>
         </div>
 
         <div class="myName">

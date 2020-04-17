@@ -42,8 +42,7 @@ button {
  
 
 button:active {
-	font-size: 14px;
-	color: #dddddd;
+	color: #b6b6b6;
 	
 }
 
@@ -59,7 +58,7 @@ button:active {
 	margin: 0 10px;
 }
 
-#timer-label {
+#timer {
 	border: 2px solid #fff;
 	max-width: 250px;
 	max-height: 200px;
@@ -88,7 +87,7 @@ button:active {
 
 .myName {
 
-	font-size: 14px;
+	font-size: 12px;
 	margin-top: 20px;
 	font-weight: normal;
 	color: darkgreen;
