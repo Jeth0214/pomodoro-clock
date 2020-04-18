@@ -5,21 +5,21 @@ let timeLeft = document.querySelector('#time-left');
 let start_stop = document.querySelector('#start_stop');
 let timerLabel = document.querySelector('#timer-label');
 const lengthButtons = document.querySelectorAll('.length-buttons');
-
+let timer = document.querySelector('#timer');
+let beep = document.querySelector('#beep');
 
 
 let countdown;
 let playButtonIcon = false;
 
-let sessionTime;
 
 buttons.forEach(button => {
     button.addEventListener('click', () => {
-        lengthValue(button);
+        buttonFunctions(button);
     })
 });
 
-const lengthValue = (button) => {
+const buttonFunctions = (button) => {
     let breakLengthValue = parseFloat(breakLengthDisplay.textContent);
     let sessionLengthValue = parseFloat(sessionLengthDisplay.textContent);
     if (button.id === 'break-decrement') {
@@ -55,9 +55,9 @@ const lengthValue = (button) => {
         if(playButtonIcon){
             button.innerHTML = '<i class="fas fa-pause fa-2x"></i>';
             if(timerLabel.textContent === 'Session'){
-                timer(getTimeLeftInSeconds);
+                sessionTimer(getTimeLeftInSeconds);
             }else if(timerLabel.textContent === 'Break'){
-                breaktimer(getTimeLeftInSeconds);
+                breakTimer(getTimeLeftInSeconds);
             }   
         } else  {
             button.innerHTML = '<i class="fas fa-play fa-2x"></i>';
@@ -74,39 +74,51 @@ const lengthValue = (button) => {
 
 
 
-const timer = (sessionCountDown) => {
+const sessionTimer = (sessionCountDown) => {
     let breakTime = parseFloat(breakLengthDisplay.textContent);
-    let breakTimeValue = breakTime * 60;
-    
+    let breakTimeValue = breakTime * 60;    
     const now = Date.now();
     const then = now + sessionCountDown * 1000;
+    
     displayTimeLeft(sessionCountDown);
     timerLabel.textContent = 'Session';
     countdown = setInterval(() => {
         const secondsLeft = Math.round((then - Date.now()) / 1000);
-        
-        if(secondsLeft < -1){    
+       
+        if(secondsLeft < 0){  
+            beep.play()  
             clearInterval(countdown);   
-            breaktimer(breakTimeValue);
+            breakTimer(breakTimeValue);
+        }
+        if(secondsLeft <= 59){
+            timer.classList.add('alert-timer');
+        }else {
+            timer.classList.remove('alert-timer');
         }
         displayTimeLeft(secondsLeft);
     }, 1000);  
 };
 
-const breaktimer = (breakTime) => {
+
+const breakTimer = (breakTime) => {
     let sessionTime = parseFloat(sessionLengthDisplay.textContent);
-    let sessionTimeValue = sessionTime * 60;
-    
+    let sessionTimeValue = sessionTime * 60;   
     timerLabel.textContent = 'Break';
     const now = Date.now();
     const then = now + breakTime * 1000;
-    displayTimeLeft(breakTime);
+    
     countdown = setInterval(() => {
         const secondsLeft = Math.round((then - Date.now()) / 1000);
-        
-        if(secondsLeft < -1){
+        displayTimeLeft(breakTime);
+        if(secondsLeft < 0){
             clearInterval(countdown);
-            timer(sessionTimeValue);
+            beep.play()
+            sessionTimer(sessionTimeValue);
+        }
+        if(secondsLeft <= 59){
+            timer.classList.add('alert-timer');
+        }else {
+            timer.classList.remove('alert-timer');
         }
         displayTimeLeft(secondsLeft);
     }, 1000);  
@@ -116,7 +128,7 @@ const breaktimer = (breakTime) => {
 const displayTimeLeft = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const remainderSeconds = seconds % 60;
-    const display = `${minutes < 10 ? 0 : ''}${minutes}:${remainderSeconds < 10 ? 0 : ''}${remainderSeconds}`;
+    const display = `${minutes < 10 ? '0' : ''}${minutes}:${remainderSeconds < 10 ? '0' : ''}${remainderSeconds}`;
     timeLeft.textContent = display;
 }
 
@@ -124,13 +136,15 @@ const displayTimeLeft = (seconds) => {
 const reset = () => {
     breakLengthDisplay.textContent = 5;
     sessionLengthDisplay.textContent = 25;
-    displayTimeLeft(1500);
     clearInterval(countdown);
+    displayTimeLeft(1500);
     start_stop.innerHTML = '<i class="fas fa-play fa-2x"></i>';
     timerLabel.textContent = 'Session';
     lengthButtons.forEach( button => {
         button.disabled = false;
-    })
+    });
+    beep.pause();
+    timer.classList.remove('alert-timer');
     
 }
 

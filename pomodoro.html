@@ -16,7 +16,7 @@
                 <h3 id="break-label">Break Length</h3>
                 <div class="set">
                     <button id="break-decrement" class="length-buttons"><i class="fas fa-arrow-down fa-2x " ></i></button>
-                    <span class="number-display" id="break-length">5</span>
+                    <span class="number-display" id="break-length"></span>
                     <button id="break-increment" class="length-buttons"><i class="fas fa-arrow-up fa-2x" ></i></button>
                 </div>
             </div>
@@ -24,16 +24,18 @@
                 <h3 id="session-label">Session Length</h3>
                 <div class="set">
                     <button id="session-decrement" class="length-buttons"><i class="fas fa-arrow-down fa-2x"></i></button>
-                    <span class="number-display" id="session-length">25</span>
+                    <span class="number-display" id="session-length"></span>
                     <button id="session-increment" class="length-buttons"><i class="fas fa-arrow-up fa-2x"></i></button>
                 </div>
             </div>
         </div>
 
-        <div id="timer">
+        <div id="timer" class="timer">
             <h3 id="timer-label">Session</h3>
             <div id="time-left"> </div>
+            <audio id="beep" src="https://soundbible.com/grab.php?id=787&type=mp3" type="audio/mpeg"></audio>
         </div>
+    
         <div>
             <button id="start_stop" title="play" class="clock-controller"><i class="fas fa-play fa-2x"></i></button>
             <button id="reset" title="reset" class="clock-controller" ><i class="fas fa-redo-alt fa-2x"></i></button>
@@ -48,7 +50,6 @@
 
 
 
-    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
     <script src="pomodoro.js"></script>
 </body>
 </html>
